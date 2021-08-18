@@ -18,7 +18,7 @@ s|Arch Linux|LycusOS|' iso/profiledef.sh
 }
 
 packages() {
-if [[ -z $(grep 'LycusOS' iso/pacman.conf) ]] ; then
+if [[ -z $(grep 'LycusOS' iso/pacman.conf) ]]; then
 cat << EOF >> iso/pacman.conf
 
 [LycusOS-pkgs-repo]
@@ -27,11 +27,12 @@ Server = https://lycusos.github.io/LycusOS-pkgs-repo/\$arch
 EOF
 fi
 
-if [[ -z $(grep 'LycusOS' iso/packages.x86_64) ]] ; then
+if [[ -z $(grep 'LycusOS' iso/packages.x86_64) ]]; then
 cat << EOF >> iso/packages.x86_64
 
 # LycusOS
 lycusos-hooks
+lycusos-installer
 EOF
 fi
 }
