@@ -1,13 +1,13 @@
 #!/bin/bash
+set -e
 
 prerequisites() {
 if [[ ! -f /usr/bin/mkarchiso ]]; then
 sudo pacman -Sy --noconfirm archiso
 fi
 
-if [[ ! -d iso ]]; then
+rm -rf iso
 cp -r /usr/share/archiso/configs/releng iso
-fi
 }
 
 profile() {
@@ -58,6 +58,8 @@ cat << EOF > iso/airootfs/etc/motd
  |______\__, |\___|\__,_|___/\____/|_____/ 
          __/ |                             
         |___/                                                      
+
+Welcome! Enter \`lycusos-installer\` to start the installation.
 
 EOF
 
