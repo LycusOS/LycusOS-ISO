@@ -1,0 +1,14 @@
+export NEWT_COLORS="
+actlistbox=gray,black
+actsellistbox=black,lightgray
+border=,black
+button=black,lightgray
+compactbutton=lightgray,black
+entry=lightgray,black
+listbox=lightgray,black
+root=,green
+shadow=,green
+textbox=white,black
+title=lightgray,black
+window=,black
+"

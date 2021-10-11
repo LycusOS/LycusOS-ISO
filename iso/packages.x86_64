@@ -120,3 +120,6 @@ zsh
 # LycusOS
 lycusos-hooks
 lycusos-installer
+
+#deps
+tamsyn-font

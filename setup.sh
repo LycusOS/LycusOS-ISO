@@ -33,6 +33,9 @@ cat << EOF >> iso/packages.x86_64
 # LycusOS
 lycusos-hooks
 lycusos-installer
+
+#deps
+tamsyn-font
 EOF
 fi
 }
@@ -44,6 +47,29 @@ sed -i 's|Arch Linux|LycusOS|g' iso/{syslinux/*,efiboot/loader/entries/*}
 sed -i 's|archiso|lycusosiso|g' iso/syslinux/{lycusosiso_pxe.cfg,lycusosiso_sys.cfg,syslinux.cfg} iso/efiboot/loader/loader.conf
 
 cp -f files/splash.png iso/syslinux/splash.png
+}
+
+font() {
+echo "FONT=Tamsyn10x20b" > iso/airootfs/etc/vconsole.conf
+}
+
+colors() {
+cat << EOF > iso/airootfs/etc/profile
+export NEWT_COLORS="
+actlistbox=gray,black
+actsellistbox=black,lightgray
+border=,black
+button=black,lightgray
+compactbutton=lightgray,black
+entry=lightgray,black
+listbox=lightgray,black
+root=,green
+shadow=,green
+textbox=white,black
+title=lightgray,black
+window=,black
+"
+EOF
 }
 
 misc() {
@@ -71,4 +97,6 @@ prerequisites
 profile
 packages
 bootloader
+font
+colors
 misc
